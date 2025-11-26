@@ -1,0 +1,21 @@
+name: test-artefact
+on: ["workflow_dispatch", "push"]
+
+jobs:
+  build-app:
+  runs-on: ubuntu-latest
+  steps :
+    - name: Get Source files
+      uses: actions/checkout@v6
+    - name: Install dependencies
+      run: npm ci
+    - name: Build app
+|      run: npm run build
+    - name: Test build completion
+      run: ls dist/index.html
+    - name: Upload website
+uses: actions/upload-artifact@v4
+with:
+name: website-build
+path: |
+dist
