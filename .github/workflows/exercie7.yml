@@ -10,7 +10,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run unit tests
-        run: npm tests
+        run: npm test
 
   build_app:
     runs-on: ubuntu-latest
